@@ -83,16 +83,18 @@
 															 var songList = ['Tamma Tamma','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
 															 var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
                                                              var artistList = ['Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi']; 
-															
-															    $('#song1 .song-artist').text(artistList[0]);
-																$('#song2 .song-artist').text(artistList[1]);
-																$('#song3 .song-artist').text(artistList[2]);
-																$('#song4 .song-artist').text(artistList[3]);
-															
-															$('#song1 .song-name').text(songList[0]);
-															$('#song2 .song-name').text(songList[1]);
-															$('#song3 .song-name').text(songList[2]);
-															$('#song4 .song-name').text(songList[3]);	
+                                                             var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
+                                                             var durationList = ['2:56','3:15','2:34','2:29'];																
+
+																
+															for(var i =0; i < songList.length;i++) {
+																var name = '#song' + (i+1);
+																var song = $(name);
+																song.find('.song-name').text(songList[i]);
+																song.find('.song-artist').text(artistList[i]);
+																song.find('.song-album').text(albumList[i]); // Added
+																song.find('.song-length').text(durationList[i]); // Added
+															}
 															
 														//addSongNameClickEvent(fileNames[0],1);
 														//addSongNameClickEvent(fileNames[1],2);
