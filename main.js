@@ -1,3 +1,38 @@
+		                                      	var songs = [{
+																		'name': 'Tamma Tamma',
+																		'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
+																		'album': 'Badrinath ki Dulhania',
+																		'duration': '2:56',
+																	   'fileName': 'song1.mp3',
+																	     'image': 'song1.jpg'
+																	},
+																	{
+																		'name': 'Humma Song',
+																		'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
+																		'album': 'Ok Jaanu',
+																		'duration': '3:15',
+																		'fileName': 'song2.mp3',
+																		'image': 'song2.jpg'
+																	},
+																	{
+																		'name': 'Nashe Si Chadh Gayi',
+																		'artist': 'Arijit Singh',
+																		'album': 'Befikre',
+																		'duration': '2:34',
+																		'fileName': 'song3.mp3',
+																		'image': 'song3.jpg'
+																	},
+																	{
+																		'name': 'The Breakup Song',
+																		'artist': 'Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi',
+																		'album': 'Ae Dil Hai Mushkil',
+																		'duration': '2:29',
+																		'fileName': 'song4.mp3',
+																		'image': 'song4.jpg'
+																		
+																	}]
+																
+		
 		function fancyTimeFormat(time)
 								{   
 									// Hours, minutes and seconds
@@ -32,6 +67,13 @@
 										song.pause();
 										}
 										} 
+										
+										function changeCurrentSongDetails(songObj) {
+                                      // Code goes here
+									  $('.current-song-image').attr('src','img/' + songObj.image)
+										$('.current-song-name').text(songObj.name)
+										$('.current-song-album').text(songObj.album)
+                                       }
 	
 							
 							   function updateCurrentTime() {
@@ -45,7 +87,8 @@
 								                            }
 
 						 
-						        function addSongNameClickEvent(songName,position) {
+						        function addSongNameClickEvent(songObj,position) {
+									var songName = songObj.fileName; // New Variable 
 									var id = '#song' + position;
 									$(id).click(function() {
 									var audio = document.querySelector('audio');
@@ -57,6 +100,7 @@
 									else {
 									audio.src = songName;
 									toggleSong();
+									changeCurrentSongDetails(songObj);
 									}
 									});
 									}
@@ -71,6 +115,8 @@
 
 						                             window.onload = function() {
 						   
+						                               changeCurrentSongDetails(songs[0]);
+						   
 															updateCurrentTime();
 															setInterval(function() {
 															updateCurrentTime();
@@ -80,20 +126,22 @@
 															// var songName2 = 'Humma Song';
 															 //var songName3 = 'Nashe Si Chadh Gayi';
 															 //var songName4 = 'The Breakup Song';
-															 var songList = ['Tamma Tamma','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
-															 var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
-                                                             var artistList = ['Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi']; 
-                                                             var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
-                                                             var durationList = ['2:56','3:15','2:34','2:29'];																
+															 //var songList = ['Tamma Tamma','Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
+															 //var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+                                                             //var artistList = ['Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi','Badshah, Jubin Nautiyal, Shashaa Tirupati','Arijit Singh','Nakash Aziz, Arijit Singh, Badshah, Jonita Gandhi']; 
+                                                             //var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre','Ae Dil Hai Mushkil'];
+                                                             //var durationList = ['2:56','3:15','2:34','2:29'];																
 
-																
-															for(var i =0; i < songList.length;i++) {
-																var name = '#song' + (i+1);
-																var song = $(name);
-																song.find('.song-name').text(songList[i]);
-																song.find('.song-artist').text(artistList[i]);
-																song.find('.song-album').text(albumList[i]); // Added
-																song.find('.song-length').text(durationList[i]); // Added
+																	
+															for(var i =0; i < songs.length;i++) {
+																 var obj = songs[i];
+															var name = '#song' + (i+1);
+															var song = $(name);
+															song.find('.song-name').text(obj.name);
+															song.find('.song-artist').text(obj.artist);
+															song.find('.song-album').text(obj.album);
+															song.find('.song-length').text(obj.duration);
+															addSongNameClickEvent(obj,i+1)
 															}
 															
 														//addSongNameClickEvent(fileNames[0],1);
@@ -101,9 +149,9 @@
 														//addSongNameClickEvent(fileNames[2],3);
 														//addSongNameClickEvent(fileNames[3],4);
 														
-														for (var i = 0; i < fileNames.length ; i++) {
-                                                        addSongNameClickEvent(fileNames[i],i+1)
-                                                         } 
+														//for (var i = 0; i < fileNames.length ; i++) {
+                                                       // addSongNameClickEvent(fileNames[i],i+1)
+                                                        // } 
 											                }
 
 								                     
