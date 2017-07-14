@@ -207,3 +207,10 @@ table.dataTable tbody tr {
     font-size: 16px;
 }
         
+.player-buttons .fa {
+    margin-right: 2rem;
+}
+
+.fa.disabled {
+    color: gray;
+}
