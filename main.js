@@ -151,9 +151,15 @@
 														
 														//for (var i = 0; i < fileNames.length ; i++) {
                                                        // addSongNameClickEvent(fileNames[i],i+1)
-                                                        // } 
-											                }
+                                                        // }
 
+                                                       $('#songs').DataTable({
+														paging: false
+													   });														
+																										   
+														   }
+
+															
 								                     
 													
 													  $('.welcome-screen button').on('click', function() {
@@ -174,8 +180,10 @@
 													});
 							
 							
-														$('body').on('keypress', function(event) {
-																	if (event.keyCode == 32) {
-																	   toggleSong();
-																	}
-																});
+														$('body').on('keypress',function(event) {
+														var target = event.target;
+														if (event.keyCode == 32 && target.tagName !='INPUT')
+														{
+															toggleSong();
+														}
+													   });
