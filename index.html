@@ -13,12 +13,13 @@
 <body>
     <div class="wrapper"><!--------------------wrapper class start----------------------------------->
        
-	   <section class="welcome-screen hidden">
+	   <section class="welcome-screen ">
             <h1> Welcome to Songify </h1>
             <h3> Enter name to access your account </h3>
             <div class="input-wrapper">
-                <input type="text" placeholder="Name" id="name-input">
-                <button> Go </button>
+                 Name <input type="text" placeholder="Name" id="name-input"><br>
+			 E-mail <input type="text" placeholder="E-mail"><br>
+                      <button id="button"> Submit </button>
             </div>
 			
 			
@@ -89,6 +90,8 @@
 														<i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
 														<i class="fa fa-step-forward clickable" aria-hidden="true"></i>
                                                         <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
+														<i class="fa fa-volume-up volumeicon" aria-hidden="true"></i>
+						                                <input id="slider" type="range" min="0" max="100" value="100" step="1">
 													</div><!----------class player-buttons end--------------->
 											
 											<div class="progress-wrapper"><!-------------class progress-wrapper start----------------------------------->

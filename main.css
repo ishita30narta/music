@@ -21,7 +21,7 @@ h1 {
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: #BBB;
+    background-color: #ce8a8a;
 }
 
 .welcome-screen {
@@ -31,6 +31,17 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#name-input{
+	margin-bottom:4px;
+	margin-left:5px;
+}
+
+#button {
+
+	margin-left: 100px;
+	margin-top: 5px;
 }
 
 .main {
@@ -205,6 +216,7 @@ table.dataTable tbody tr {
     width: 400px;
     margin-bottom: 1rem;
     font-size: 16px;
+	border-radius:15px;
 }
         
 .player-buttons .fa {
@@ -214,3 +226,45 @@ table.dataTable tbody tr {
 .fa.disabled {
     color: gray;
 }
+
+input #slider{
+	width: 90px;
+}
+ #slider{
+	  position:relative;
+	  top:8px;
+	  left:-30px;
+
+  } 
+  	input[type=range] {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+
+  margin-top:-15px;
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 15px;
+  width: 16px;
+  border-radius: 100%;
+  background:white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10px;
+  position:relative;
+  top:4px;
+}
+

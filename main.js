@@ -1,4 +1,117 @@
-		                                      	var songs = [{
+	                                      		 var currentSongNumber = 1;
+												var willLoop = 0;
+												var willShuffle = 0; 
+									        	var willmute = 1; 
+												
+												
+												
+												
+												function mute(){
+												var song=document.querySelector('audio');
+												if (song.muted)
+												{
+													song.muted= false;
+												}
+												else
+												{
+													song.muted=true;
+												}
+												}
+												
+												function fancyTimeFormat(time)
+												{   
+													// Hours, minutes and seconds
+													var hrs = ~~(time / 3600);
+													var mins = ~~((time % 3600) / 60);
+													var secs = time % 60;
+
+													// Output like "1:01" or "4:03:59" or "123:03:59"
+													var ret = "";
+
+													if (hrs > 0) {
+														ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+													}
+
+													ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+													ret += "" + secs;
+													return ret;
+												}
+												
+													function changeCurrentSongDetails(songObj) {
+                                      // Code goes here
+									  $('.current-song-image').attr('src','img/' + songObj.image)
+										$('.current-song-name').text(songObj.name)
+										$('.current-song-album').text(songObj.album)
+                                       }
+									   
+									    //volume function//
+
+
+				function setvolume(){
+					var song = document.querySelector('audio');
+					song.volume = slider.value/100;
+					
+                }
+				
+				  function toggleSong() {
+										var song = document.querySelector('audio');
+										if(song.paused == true) {
+										console.log('Playing');
+										$('.play-icon').removeClass('fa-play').addClass('fa-pause');
+										song.play();
+										}
+										else {
+										console.log('Pausing');
+										$('.play-icon').removeClass('fa-pause').addClass('fa-play');
+										song.pause();
+										}
+										} 
+										
+										  function updateCurrentTime() {
+									var song = document.querySelector('audio');
+									var currentTime = Math.floor(song.currentTime);
+									currentTime = fancyTimeFormat(currentTime);
+									var duration = Math.floor(song.duration);
+									duration = fancyTimeFormat(duration)
+									$('.time-elapsed').text(currentTime);
+									$('.song-duration').text(duration);
+								                            }
+															
+															
+																				 
+						  //function for fill progress bar//	
+		function updateTimer() {
+			var song = document.querySelector('audio');
+			var ct = song.currentTime;
+			var td = song.duration;
+			var percentage =(ct/td)*100;
+			$('.progress-filled').css('width', percentage+ "%");
+			
+		}
+		
+		  function addSongNameClickEvent(songObj,position) {
+									var songName = songObj.fileName; // New Variable 
+									var id = '#song' + position;
+									$(id).click(function() {
+									var audio = document.querySelector('audio');
+									var currentSong = audio.src;
+									if(currentSong.search(songName) != -1)
+									{
+									toggleSong();
+									}
+									else {
+									audio.src = songName;
+									toggleSong();
+									changeCurrentSongDetails(songObj);
+									}
+									});
+									}
+						 
+		
+		
+				
+																		
+												var songs = [{
 																		'name': 'Tamma Tamma',
 																		'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
 																		'album': 'Badrinath ki Dulhania',
@@ -33,87 +146,37 @@
 																	}]
 																
 		
-		function fancyTimeFormat(time)
-								{   
-									// Hours, minutes and seconds
-									var hrs = ~~(time / 3600);
-									var mins = ~~((time % 3600) / 60);
-									var secs = time % 60;
-
-									// Output like "1:01" or "4:03:59" or "123:03:59"
-									var ret = "";
-
-									if (hrs > 0) {
-										ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-									}
-
-									ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-									ret += "" + secs;
-									return ret;
-								}
+		
 
 	
-	
-                                   function toggleSong() {
-										var song = document.querySelector('audio');
-										if(song.paused == true) {
-										console.log('Playing');
-										$('.play-icon').removeClass('fa-play').addClass('fa-pause');
-										song.play();
-										}
-										else {
-										console.log('Pausing');
-										$('.play-icon').removeClass('fa-pause').addClass('fa-play');
-										song.pause();
-										}
-										} 
-										
-										function changeCurrentSongDetails(songObj) {
-                                      // Code goes here
-									  $('.current-song-image').attr('src','img/' + songObj.image)
-										$('.current-song-name').text(songObj.name)
-										$('.current-song-album').text(songObj.album)
-                                       }
+	$('.fa-volume-up').on('click',function() {
+			$('.fa-volume-up').toggleClass('disabled')
+			willmute = 1 - willmute;
+			
+			mute();
+            });
+					
+					
+				
+			$('.fa-random').on('click',function() {
+			$('.fa-random').toggleClass('disabled')
+			willShuffle = 1 - willShuffle;
+            });
+			
+			$('.fa-repeat').on('click',function() {
+				$('.fa-repeat').toggleClass('disabled')
+				willLoop = 1 - willLoop;
+			});
+			
+		
+			$('#slider').on('mousemove',function(){
+				setvolume();
+			});
+                                 
+									
 	
 							
-							   function updateCurrentTime() {
-									var song = document.querySelector('audio');
-									var currentTime = Math.floor(song.currentTime);
-									currentTime = fancyTimeFormat(currentTime);
-									var duration = Math.floor(song.duration);
-									duration = fancyTimeFormat(duration)
-									$('.time-elapsed').text(currentTime);
-									$('.song-duration').text(duration);
-								                            }
-
-						 
-						        function addSongNameClickEvent(songObj,position) {
-									var songName = songObj.fileName; // New Variable 
-									var id = '#song' + position;
-									$(id).click(function() {
-									var audio = document.querySelector('audio');
-									var currentSong = audio.src;
-									if(currentSong.search(songName) != -1)
-									{
-									toggleSong();
-									}
-									else {
-									audio.src = songName;
-									toggleSong();
-									changeCurrentSongDetails(songObj);
-									}
-									});
-									}
-						 
-						 
-						 
-						 
-						 
-						 
-						 
-						 
-
-						                             window.onload = function() {
+	                                               window.onload = function() {
 						   
 						                               changeCurrentSongDetails(songs[0]);
 						   
@@ -178,7 +241,8 @@
 													$('.play-icon').on('click', function() {
 													   toggleSong();
 													});
-							
+							 
+						
 							
 														$('body').on('keypress',function(event) {
 														var target = event.target;
