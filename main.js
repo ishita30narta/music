@@ -1,6 +1,6 @@
 	                                      		 var currentSongNumber = 1;
 												var willLoop = 0;
-												var willShuffle = 0; 
+												
 									        	var willmute = 1; 
 												
 												
