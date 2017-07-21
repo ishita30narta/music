@@ -59,11 +59,11 @@ h3{
     
 }
 
-/*.main header {
+.main header {
     height: 80px;
     padding: 1rem;
     color: #FFF;
-}*/
+}
 
 .main .content {
     flex:1;
