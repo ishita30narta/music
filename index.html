@@ -1,120 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title> Song App</title>
-    <link rel="stylesheet" type="text/css" href="font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
-</head>
+				<head>
+					<meta charset="UTF-8">
+					<title> Song App</title>
+					
+					<link rel="stylesheet" type="text/css" href="font-awesome.css">
+					 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+					<link rel="stylesheet" type="text/css" href="main.css">
+					
+				</head>
 
-<!------------------------------body start----------------------------------->
-<body>
-    <div class="wrapper"><!--------------------wrapper class start----------------------------------->
-       
-	   <section class="welcome-screen ">
-            <h1> Welcome to Songify </h1>
-            <h3> Enter name to access your account </h3>
-            <div class="input-wrapper">
-                 Name <input type="text" placeholder="Name" id="name-input"><br>
-			 E-mail <input type="text" placeholder="E-mail"><br>
-                      <button id="button"> Submit </button>
-            </div>
-			
-			
-        </section>
-        <div class="main"><!-----------------------class main start----------------------------------->
-            <header>
-                <div class="right floated user-name"> </div>
-            </header>
-           
-		   <section class="content">
-                <audio src="song1.mp3"></audio>
-				<table id="songs">
-							<thead class="list-headers">
-								<td> Title </td> 
-								<td> Artist </td>
-								<td> Album </td>
-								<td> Duration </td>
-								</thead>
-							   
-							 <tbody class="song-list"><!-----------------------------------song-list class start----------------------------------->
-										<tr class="song" id="song1"><!------------------id song1 start---------------------------------------->
-										<td class="song-name"></td>
-										<td class="song-artist"></td>
-										<td class="song-album"></td>
-										<td class="song-length"></td>
-										</tr><!------------------------id song1 end---------------------------------------------->
-														
-										<tr class="song" id="song2"><!----------------------id song2 start---------------------------------------->
-										<td  class="song-name"> </td>
-									    <td class="song-artist"></td>
-										<td class="song-album"></td>
-										<td class="song-length"></td>
-										</tr><!-------------------------id song2 end---------------------------------------->
-										
-										<tr class="song" id="song3"><!------------------id song3 start---------------------------------------->
-										<td  class="song-name"> </td>
-										<td class="song-artist"></td>
-										<td class="song-album"></td>
-										<td class="song-length"></td>
-										</tr><!------------------id song3 end---------------------------------------->
-										
-										<tr class="song" id="song4"><!------------------id song4 start---------------------------------------->
-										<td  class="song-name"> </td>
-										<td class="song-artist"></td>
-										<td class="song-album"></td>
-										<td class="song-length"></td>
-										</tr><!------------------id song4 end---------------------------------------->
+<!------------------------------------body start----------------------------------------------------------------------------------------->
+<body  class="vegas-slider">
 
+      <div class="wrapper  "><!--------------------wrapper class start----------------------------------->
 						
-                            </tbody><!-----------------------------------song-list class end----------------------------------->
-	</table>
-					<div class="current-song-wrapper">
-					<img  class="current-song-image">
-					<div>
-					<p class="current-song-name"></p>
-					<p class="current-song-album"></p>
-					</div>
-					</div>
-           
-		   </section>
-           
-		   <footer><!----------------------footer start--------------------->
-			
-                       <div class="controls"><!------------controls class start----------------------->
-													<div class="player-buttons"><!----------class player-buttons start--------------->
-														<i class="fa fa-random clickable disabled" aria-hidden="true"></i>
-														<i class="fa fa-step-backward clickable" aria-hidden="true"></i>
-														<i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
-														<i class="fa fa-step-forward clickable" aria-hidden="true"></i>
-                                                        <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
-														<i class="fa fa-volume-up volumeicon" aria-hidden="true"></i>
-						                                <input id="slider" type="range" min="0" max="100" value="100" step="1">
-													</div><!----------class player-buttons end--------------->
-											
-											<div class="progress-wrapper"><!-------------class progress-wrapper start----------------------------------->
-															<span class="time-elapsed"> </span>
-															<div class="player-progress"><!---------------class player-progress start--------------------->
-																<div class="progress-filled"> </div>
-															</div><!---------------class player-progress end--------------------->
-															<span class="song-duration"></span>
-											</div><!-------------class progress-wrapper end----------------------------------->
-                      </div><!------------controls class end----------------------->
-            
-			</footer><!-------------------footer end--------------------->
-			
-        </div><!-------------------------------------class main end-------------------------------------->
-    </div><!-------------------------------------wrapper class end-------------------------------------->
-    
+						<section class="welcome-screen   "><!---welcome screen start--------->
+							<h1> Bring Music to Life </h1>
+							   <h3> Enter name to access your account </h3>
+									<div class="input-wrapper">
+									
+											<input type="text" placeholder="Name" id="name-input">
+												<button> Go </button>
+									
+									</div>
+						</section><!---welcome screen end--------->
+				  
 
-	<script src="jquery.js">
-    </script>
-     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
-    </script>
-	<script src="main.js">
-	</script>
+          <div class="main hidden"><!-----------------------class main start----------------------------------->
+					<header>
+						<div class="right floated user-name"> </div>
+					</header>
+           
+		   <section class="content"><!-------class content strt---------------->
+		            <audio src="song1.mp3"></audio>
+				
+				           <table id="songs" ><!-------table start------>
+																	
+	                            <thead class="list-headers">
+									<td> Title </td> 
+									<td> Artist </td>
+									<td> Album </td>
+									<td> Duration </td>
+								</thead>
+																	 
+										 <tbody class="song-list" ><!-----------------------------------song-list class start----------------------------------->
+															
+											<tr class="song" id="song1"><!------------------id song1 start---------------------------------------->
+												<td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!------------------------id song1 end---------------------------------------------->
+														
+														
+											<tr class="song" id="song2"><!----------------------id song2 start---------------------------------------->
+												<td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!-------------------------id song2 end---------------------------------------->
+										
+														
+											<tr class="song" id="song3"><!------------------id song3 start---------------------------------------->
+											    <td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!------------------id song3 end---------------------------------------->
+										
+														
+											<tr class="song" id="song4"><!------------------id song4 start---------------------------------------->
+												<td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!------------------id song4 end---------------------------------------->
+
+														
+											<tr class="song" id="song5"><!------------------id song5 start---------------------------------------->
+												<td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!------------------id song5 end---------------------------------------->
+
+														
+											<tr class="song" id="song6"><!------------------id song6 start---------------------------------------->
+												<td class="song-name"></td>
+												<td class="song-artist"></td>
+												<td class="song-album"></td>
+												<td class="song-length"></td>  
+											</tr><!------------------id song6 end---------------------------------------->
+
+														
+									    </tbody><!-----------------------------------song-list class end----------------------------------->
+						</table><!-------table end------>
+	
+	                              <div class="current-song-wrapper">
+									<img class="current-song-image">
+										<div>
+											<p class="current-song-name"></p>
+											<p class="current-song-album"></p>
+										</div>
+								 </div>
+			 
+
+            </section><!-------class content strt---------------->
+			
+	
+					 <footer><!----------------------footer start--------------------->
+							<div class="controls"><!------------controls class start----------------------->
+								<div   class="player-buttons" ><!----------class player-buttons start--------------->
+									  <i class="fa fa-random clickable disabled" aria-hidden="true"></i>
+									  <i class="fa fa-step-backward clickable" aria-hidden="true"></i>
+									  <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+									  <i class="fa fa-step-forward clickable" aria-hidden="true"></i>
+									  <i class="fa fa-repeat disabled clickable" aria-hidden="true"></i>
+									  <i class="fa fa-volume-up volumeicon" aria-hidden="true"></i>
+									  <input id="slider" type="range" min="0" max="100" value="100" step="1">
+								</div><!----------class player-buttons end--------------->
+								
+								<div class="progress-wrapper"><!-------------class progress-wrapper start----------------------------------->
+									 
+									 <span class="time-elapsed"> </span>
+										<div class="player-progress" ><!---------------class player-progress start--------------------->
+										<div class="progress-filled"> </div>
+										</div><!---------------class player-progress end--------------------->
+									 <span class="song-duration"></span>
+									
+								 </div><!-------------class progress-wrapper end----------------------------------->
+							</div><!------------controls class end----------------------->
+					 </footer><!-------------------footer end--------------------->
+         </div><!-------------------------------------class main end-------------------------------------->
+      </div><!-------------------------------------wrapper class end-------------------------------------->
+	
+	
+	       <script src="jquery.js">
+		   </script>
+				<script src="plugins/vegas.js"></script>
+				        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
+						</script>
+				               <script src="main.js">
+							   </script>
+				
+				
 </body>
 <!----------------------------------------------body end-------------------------------------->
 </html>
