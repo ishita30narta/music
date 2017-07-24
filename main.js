@@ -15,7 +15,7 @@
 						song.muted=true;
 					  }
 			   }
-<!-------------------------------------------------------------------------------------------------------------------------->	
+<!--------------------------------------------------------//vegas slider start------------------------------------------------------------------>	
 		
 	function slide(next)
 	  {
@@ -193,7 +193,7 @@
 				
 				}
 				
-<!------------------------------------------------------------------------------------------------------------------------------------------->				 
+<!-----------------------------------------------------------------//vegas slider end-------------------------------------------------------------------------->				 
 		function fancyTimeFormat(time)
 				{   
 					// Hours, minutes and seconds
@@ -201,9 +201,9 @@
 					var mins = ~~((time % 3600) / 60);
 					var secs = time % 60;
 
-					// Output like "1:01" or "4:03:59" or "123:03:59"
+					// Output like "1:01" or "4:03:59" or "123:03:59"    //this show the time duration of songs
 					var ret = "";
-
+                     
 					if (hrs > 0) {
 						ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
 					}
@@ -217,7 +217,7 @@
 			 function changeCurrentSongDetails(songObj) 
 			    {
 					$('.current-song-image').attr('src','img/' + songObj.image)
-					$('.current-song-name').text(songObj.name)
+					$('.current-song-name').text(songObj.name)                       //this change the name,album nd imgae of selected song
 					$('.current-song-album').text(songObj.album)
 				}
 
@@ -231,14 +231,14 @@
 			function toggleSong() 
 			{
 				var song = document.querySelector('audio');
-				if(song.paused == true) { // if song is in pause mode then play the song
+				if(song.paused == true) {        // if song is in pause mode then play 
 				console.log('Playing');
 				$('.play-icon').removeClass('fa-play').addClass('fa-pause');
 				song.play();
-				$('body').vegas('play');
+				$('body').vegas('play');                                                
 				}
 				else {
-				console.log('Pausing'); //otherwise pause the song
+				console.log('Pausing');          //otherwise pause 
 				$('.play-icon').removeClass('fa-pause').addClass('fa-play');
 				song.pause();
 				$('body').vegas('pause');
@@ -279,7 +279,7 @@
 							});
 				   }
 								
-<!------------------------------------------------------------------------------------------------------------->				
+<!----------------------------------------------//start array of object--------------------------------------------------------------->				
 	    var songs = [{
 			
 				'name': 'Closer',
@@ -333,7 +333,7 @@
 				
 			}]
 			
-<!--------------------------------------------------------------------------------------------------------------------------------------------->		  
+<!------------------------------------------------------------//array of object end--------------------------------------------------------------------------------->		  
 		 $('audio').on('ended',function() 
 		    {
 			    var audio = document.querySelector('audio');
@@ -384,7 +384,7 @@
 				
 				
 <!-------------------------------------------------------------------------------------------->
-			window.onload = function() 
+			window.onload = function()        //jse hi window onload hogi ye sab show kr dena ek dm
 			{
 			
 					changeCurrentSongDetails(songs[0]);
@@ -443,13 +443,13 @@
 			{  
 				  var name = $('#name-input').val();               
 				  if (name.length > 3) 
-				  {                         
-					var message = "Welcome, " + name;
-					$('.main .user-name').text(message);        
+				  {                                                  //agar welcome screen m input ki value less ya equal to 3 hui tho error show kro
+					var message = "Welcome, " + name;                //otherwise error show mt kro
+					       
 					$('.welcome-screen').addClass('hidden');    
 					$('.main').removeClass('hidden');  
 					
-			             $('.vegas-slider').vegas(
+			             $('.vegas-slider').vegas(                //welcom screen k bdh jse hi main page m jte ho ye slider start kro
 						 {
 		                    slides:[
 									{ src: "img/01.jpg" },
@@ -463,7 +463,7 @@
 				  }
                else{
 					$('#name-input').addClass('error');
-					$('.error-message').removeClass('hidden').text(error);
+					
 				  }
 			});
 			
@@ -475,7 +475,7 @@
 	
 	
 	            $('body').on('keypress',function(event) {
-					console.log(event);
+					console.log(event);                                       // spacebar sae bhi we can use toggle function ki property
 					var target = event.target;
 					if (event.keyCode == 32 && target.tagName !='INPUT')
 					{
